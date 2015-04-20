@@ -13,6 +13,11 @@ import com.badlogic.gdx.scenes.scene2d.ui.Skin;
 import com.badlogic.gdx.scenes.scene2d.ui.TextButton;
 import com.badlogic.gdx.scenes.scene2d.utils.ClickListener;
 
+/**
+ * Classe qui gère avec deux boutons.
+ * @author licencepronti
+ *
+ */
 public class InterfaceScreen implements Screen {
 	
 	Skin skin;
