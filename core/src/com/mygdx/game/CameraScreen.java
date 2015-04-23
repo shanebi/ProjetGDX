@@ -19,23 +19,23 @@ public class CameraScreen implements Screen{
 	int height;
 
 
-	int x0,y0,x1,y1;  // position du premier et deuxiËme doigt
+	int x0,y0,x1,y1;  // position du premier et deuxi√®me doigt
 
-	int lastx0 ;      // prÈcÈdente position du 1er doigt
-	int lasty0 ;      // prÈcÈdente position du 1er doigt
+	int lastx0 ;      // pr√©c√©dente position du 1er doigt
+	int lasty0 ;      // pr√©c√©dente position du 1er doigt
 
-	int lastx1 ;      // prÈcÈdente position du 2eme doigt posÈ sur l'Ècran
-	int lasty1 ;      // prÈcÈdente position du 2eme doigt posÈ sur l'Ècran
+	int lastx1 ;      // pr√©c√©dente position du 2eme doigt pos√© sur l'√©cran
+	int lasty1 ;      // pr√©c√©dente position du 2eme doigt pos√© sur l'√©cran
 	public static float vitesse_zoom = 0.02f;
 	public static float vitesse_deplacement_camera = 200;
 
 	public static float max_zoom = 1f;    // maximum qu'on peut zoomer
 	public static float min_zoom = 0.5f;  // minimum qu'on peut zoomer
 
-	private int limite_image_maxHauteur ;  // limite dÈplacement camera
-	private int limite_image_maxLargeur ;  // limite dÈplacement camera
-	public static int limite_image_minHauteur = 0;    // limite dÈplacement camera
-	public static int limite_image_minLargeur = 0 ;   // limite dÈplacement camera
+	private int limite_image_maxHauteur ;  // limite d√©placement camera
+	private int limite_image_maxLargeur ;  // limite d√©placement camera
+	public static int limite_image_minHauteur = 0;    // limite d√©placement camera
+	public static int limite_image_minLargeur = 0 ;   // limite d√©placement camera
 
 
 	private int largeur_Ecran ;
@@ -69,7 +69,7 @@ public class CameraScreen implements Screen{
 	@Override
 	public void render(float delta) {
 
-		/*** fond colorÈ *****/
+		/*** fond color√© *****/
 		/*Gdx.gl.glClearColor(0.8f, 0.8f, 0.8f, 1);
 		Gdx.gl.glClear(GL20.GL_COLOR_BUFFER_BIT);    
 
@@ -149,7 +149,7 @@ public class CameraScreen implements Screen{
 	public boolean touchDragged(int screenX, int screenY, int pointer) {
 		//camera.translate(screenX, screenY, pointer);
 
-		// ************** Saisir les coordonnÈes actuelles    ********************/
+		// ************** Saisir les coordonn√©es actuelles    ********************/
 		if(pointer==1) // Pour le 2eme doigt
 		{
 			x1=screenX;
@@ -161,10 +161,10 @@ public class CameraScreen implements Screen{
 			y0=screenY;
 		}
 
-		/*********** OpÈration : Zoom sur carte *******************************/
+		/*********** Op√©ration : Zoom sur carte *******************************/
 
-		if(Gdx.input.isTouched(1)){ // si deux doigt sont posÈs sur l'Ècran                                   {
-			// Comparer entre la distance actuelle (entre les 2 doigts) et la distance prÈcÈdente
+		if(Gdx.input.isTouched(1)){ // si deux doigt sont pos√©s sur l'√©cran                                   {
+			// Comparer entre la distance actuelle (entre les 2 doigts) et la distance pr√©c√©dente
 			if(Math.pow(x0-x1,2)+Math.pow(y0-y1,2)>Math.pow(lastx0-lastx1,2)+Math.pow(lasty0-lasty1,2))
 			{
 				if(camera.zoom>min_zoom)  // limite du zoom avant
@@ -172,19 +172,19 @@ public class CameraScreen implements Screen{
 			}
 			else
 			{
-				if(camera.zoom<max_zoom)  // limite du zoom arriËre
+				if(camera.zoom<max_zoom)  // limite du zoom arri√©re
 					camera.zoom+=vitesse_zoom;
 			}
 	}     
 
-	/********** Operation : DÈplacer camera avec un doigt ******************/
+	/********** Operation : D√©placer camera avec un doigt ******************/
 
-	if(!Gdx.input.isTouched(1))             // si un seul doigt est posÈ sur l'Ècran
+	if(!Gdx.input.isTouched(1))             // si un seul doigt est pos√© sur l'√©cran
 	{
 
-		// les quatres directions principales :
+		// les quatre directions principales :
 		//-------------------------------------
-		if(y0-lasty0>0 && x0-lastx0<5 &&  x0-lastx0>-5 )  // si drag vers haut avec tolÈrance sur x
+		if(y0-lasty0>0 && x0-lastx0<5 &&  x0-lastx0>-5 )  // si drag vers haut avec tol√©rance sur x
 		{
 			if(camera.position.y<limite_image_maxHauteur) // limite de la camera
 			{
@@ -212,7 +212,7 @@ public class CameraScreen implements Screen{
 		{
 			if(x0-lastx0>0 && y0-lasty0>-5 && y0-lasty0<5)     // Si drag vers gauche
 			{
-				if(camera.position.x>limite_image_minLargeur)  // Limite de la camera ‡ gauche
+				if(camera.position.x>limite_image_minLargeur)  // Limite de la camera √† gauche
 				{
 					camera.translate(-vitesse_deplacement_camera, 0);
 				}

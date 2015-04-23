@@ -14,7 +14,7 @@ import com.badlogic.gdx.scenes.scene2d.ui.TextButton;
 import com.badlogic.gdx.scenes.scene2d.utils.ClickListener;
 
 /**
- * Classe qui gère l'interface avec deux boutons.
+ * Classe qui gère l'interface avec trois boutons.
  * @author licencepronti
  *
  */
