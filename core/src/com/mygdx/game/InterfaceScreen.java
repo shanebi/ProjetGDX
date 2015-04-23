@@ -14,7 +14,7 @@ import com.badlogic.gdx.scenes.scene2d.ui.TextButton;
 import com.badlogic.gdx.scenes.scene2d.utils.ClickListener;
 
 /**
- * Classe qui gère avec deux boutons.
+ * Classe qui gère l'interface avec deux boutons.
  * @author licencepronti
  *
  */
@@ -24,6 +24,7 @@ public class InterfaceScreen implements Screen {
 	Stage stage ;
 	
 	CameraScreen maCamera ;
+	GraphScreen monGraph ;
 	
 	MyGdxGame game ;
 	Texture background ;
@@ -36,18 +37,23 @@ public class InterfaceScreen implements Screen {
 	@Override
 	public void show() {
 		maCamera = new CameraScreen(game);
+		monGraph = new GraphScreen(game);
+		
 		stage = new Stage();
 		Gdx.input.setInputProcessor(stage);
 		
-		
-
         createBasicSkin();
+        
         TextButton btnCarte = new TextButton("Afficher carte", skin); // Use the initialized skin
-        btnCarte.setPosition(Gdx.graphics.getWidth()/2 - Gdx.graphics.getWidth()/8 , Gdx.graphics.getHeight()/2);
+        btnCarte.setPosition(Gdx.graphics.getWidth()/2 - Gdx.graphics.getWidth()/8 , 800);
         stage.addActor(btnCarte);
 
+        TextButton btnGraph = new TextButton("Afficher graph", skin); // Use the initialized skin
+        btnGraph.setPosition(Gdx.graphics.getWidth()/2 - Gdx.graphics.getWidth()/8 , 500);
+        stage.addActor(btnGraph);
+        
         TextButton btnQuit = new TextButton("Quitter", skin); // Use the initialized skin
-        btnQuit.setPosition(Gdx.graphics.getWidth()/2 - Gdx.graphics.getWidth()/8 , Gdx.graphics.getHeight()/3);
+        btnQuit.setPosition(Gdx.graphics.getWidth()/2 - Gdx.graphics.getWidth()/8 , 200);
         stage.addActor(btnQuit);
 		
 		
@@ -64,6 +70,14 @@ public class InterfaceScreen implements Screen {
 		    @Override
 		    public void clicked(InputEvent event, float x, float y) {
 		    	game.setScreen(maCamera);
+		    	
+		    };
+		});
+		
+		btnGraph.addListener( new ClickListener() {              
+		    @Override
+		    public void clicked(InputEvent event, float x, float y) {
+		    	game.setScreen(monGraph);
 		    	
 		    };
 		});
