@@ -24,6 +24,7 @@ public class InterfaceScreen implements Screen {
 	Stage stage ;
 	
 	CameraScreen maCamera ;
+	GraphRandScreen monRandGraph ;
 	GraphScreen monGraph ;
 	
 	MyGdxGame game ;
@@ -37,6 +38,7 @@ public class InterfaceScreen implements Screen {
 	@Override
 	public void show() {
 		maCamera = new CameraScreen(game);
+		monRandGraph = new GraphRandScreen(game);
 		monGraph = new GraphScreen(game);
 		
 		stage = new Stage();
@@ -45,10 +47,14 @@ public class InterfaceScreen implements Screen {
         createBasicSkin();
         
         TextButton btnCarte = new TextButton("Afficher carte", skin); // Use the initialized skin
-        btnCarte.setPosition(Gdx.graphics.getWidth()/2 - Gdx.graphics.getWidth()/8 , 800);
+        btnCarte.setPosition(Gdx.graphics.getWidth()/2 - Gdx.graphics.getWidth()/8 , 1100);
         stage.addActor(btnCarte);
 
-        TextButton btnGraph = new TextButton("Afficher graph", skin); // Use the initialized skin
+        TextButton btnRandGraph = new TextButton("Afficher un graph aléatoire", skin); // Use the initialized skin
+        btnRandGraph.setPosition(Gdx.graphics.getWidth()/2 - Gdx.graphics.getWidth()/8 , 800);
+        stage.addActor(btnRandGraph);
+        
+        TextButton btnGraph = new TextButton("Afficher un graph prédéfini", skin); // Use the initialized skin
         btnGraph.setPosition(Gdx.graphics.getWidth()/2 - Gdx.graphics.getWidth()/8 , 500);
         stage.addActor(btnGraph);
         
@@ -70,6 +76,14 @@ public class InterfaceScreen implements Screen {
 		    @Override
 		    public void clicked(InputEvent event, float x, float y) {
 		    	game.setScreen(maCamera);
+		    	
+		    };
+		});
+		
+		btnRandGraph.addListener( new ClickListener() {              
+		    @Override
+		    public void clicked(InputEvent event, float x, float y) {
+		    	game.setScreen(monRandGraph);
 		    	
 		    };
 		});
