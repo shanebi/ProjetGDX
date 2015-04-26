@@ -9,6 +9,8 @@ import com.badlogic.gdx.Screen;
 import com.badlogic.gdx.graphics.Color;
 import com.badlogic.gdx.graphics.GL20;
 import com.badlogic.gdx.graphics.g2d.SpriteBatch;
+import com.badlogic.gdx.scenes.scene2d.InputEvent;
+import com.badlogic.gdx.scenes.scene2d.InputListener;
 import com.badlogic.gdx.scenes.scene2d.Stage;
 import com.mygdx.game.MyGdxGame;
 
@@ -45,6 +47,8 @@ public class GraphScreen implements Screen, InputProcessor {
 	@Override
 	public void show() {
 		batch = new SpriteBatch();
+		stage = new Stage();
+
 		c1 = new Cercle(120, 500, 60);
 		c2 = new Cercle(500,1200, 60);
 		c3 = new Cercle(700, 700, 60);
@@ -52,28 +56,25 @@ public class GraphScreen implements Screen, InputProcessor {
 		l2 = new Ligne();
 		l3 = new Ligne();
 		
-		stage = new Stage();
-		Gdx.input.setInputProcessor(stage);
-		
 		stage.addActor(c1);
 		stage.addActor(c2);
 		stage.addActor(c3);
-		stage.draw();		
+		stage.draw();	
 		
 	}
 
 	@Override
 	public void render(float delta) {
-		Gdx.gl.glClearColor(0, 0, 0, 1);
+		Gdx.gl.glClearColor(0.8f, 0.8f, 0.8f, 1);
 		Gdx.gl.glClear(GL20.GL_COLOR_BUFFER_BIT);
+		
 		l1.draw(c1.getX(), c1.getY(), c2.getX(), c2.getY());
 		l2.draw(c2.getX(), c2.getY(), c3.getX(), c3.getY());
 		l3.draw(c1.getX(), c1.getY(), c3.getX(), c3.getY());
 		c1.draw(batch, Color.RED, "2");
 		c2.draw(batch, Color.GREEN, "6");
-		c3.draw(batch, Color.ORANGE, "9");
+		c3.draw(batch, Color.ORANGE, "9");		
 	}
-
 	
 	
 	@Override

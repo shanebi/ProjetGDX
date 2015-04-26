@@ -20,7 +20,8 @@ public class Cercle extends Actor {
 
 	private float x, y, radius;
 	private ShapeRenderer sr;
-
+	private Color couleur ;
+	
 	private Label lbl;
 	private LabelStyle lblStyle;
 	private BitmapFont bFont;
@@ -64,8 +65,16 @@ public class Cercle extends Actor {
 		bFont.scale(1f); //Taille de la police de caractère
 		
 		sr.begin(ShapeRenderer.ShapeType.Filled);
-		sr.setColor(couleur);
+		
+		//Premier cercle qui va servir de bordure noir
+		sr.setColor(Color.BLACK);
 		sr.circle(x, y, radius);
+		
+		//Deuxième cercle avec la couleur du joueur
+		sr.setColor(couleur);
+		sr.circle(x, y, radius-10);
+		
+		
 		sr.end();
 
 		lbl.setText(txt);
@@ -88,6 +97,22 @@ public class Cercle extends Actor {
 	 */
 	public float getY() {
 		return y;
+	}
+
+	/**
+	 * Retourne la couleur du cercle
+	 * @return Couleur du cercle
+	 */
+	public Color getCouleur() {
+		return couleur;
+	}
+
+	/**
+	 * Défini une couleur au cercle
+	 * @param couleur La couleur que l'on souhaite afficher
+	 */
+	public void setCouleur(Color couleur) {
+		this.couleur = couleur;
 	}
 
 }
