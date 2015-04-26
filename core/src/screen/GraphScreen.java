@@ -8,12 +8,8 @@ import com.badlogic.gdx.InputProcessor;
 import com.badlogic.gdx.Screen;
 import com.badlogic.gdx.graphics.Color;
 import com.badlogic.gdx.graphics.GL20;
-import com.badlogic.gdx.graphics.Texture;
 import com.badlogic.gdx.graphics.g2d.SpriteBatch;
-import com.badlogic.gdx.graphics.glutils.ShapeRenderer;
-import com.badlogic.gdx.scenes.scene2d.InputEvent;
 import com.badlogic.gdx.scenes.scene2d.Stage;
-import com.badlogic.gdx.scenes.scene2d.utils.ClickListener;
 import com.mygdx.game.MyGdxGame;
 
 /**
@@ -25,7 +21,6 @@ import com.mygdx.game.MyGdxGame;
 public class GraphScreen implements Screen, InputProcessor {
 
 	private MyGdxGame game;
-	private boolean isTouching;
 	private SpriteBatch batch;
 	private Stage stage;
 	
@@ -34,6 +29,8 @@ public class GraphScreen implements Screen, InputProcessor {
 	private Cercle c3;
 	private Ligne l1;
 	private Ligne l2;
+	private Ligne l3;
+	
 
 	/**
 	 * Constructeur de la classe
@@ -48,11 +45,12 @@ public class GraphScreen implements Screen, InputProcessor {
 	@Override
 	public void show() {
 		batch = new SpriteBatch();
-		c1 = new Cercle(100, 500, 60);
+		c1 = new Cercle(120, 500, 60);
 		c2 = new Cercle(500,1200, 60);
 		c3 = new Cercle(700, 700, 60);
 		l1 = new Ligne();
 		l2 = new Ligne();
+		l3 = new Ligne();
 		
 		stage = new Stage();
 		Gdx.input.setInputProcessor(stage);
@@ -60,16 +58,7 @@ public class GraphScreen implements Screen, InputProcessor {
 		stage.addActor(c1);
 		stage.addActor(c2);
 		stage.addActor(c3);
-		stage.draw();
-		
-		c1.addListener( new ClickListener() {              
-		    @Override
-		    public void clicked(InputEvent event, float x, float y) {
-		    	System.out.println("On quitte l'application.");
-		        Gdx.app.exit();
-		    };
-		});
-		
+		stage.draw();		
 		
 	}
 
@@ -79,6 +68,7 @@ public class GraphScreen implements Screen, InputProcessor {
 		Gdx.gl.glClear(GL20.GL_COLOR_BUFFER_BIT);
 		l1.draw(c1.getX(), c1.getY(), c2.getX(), c2.getY());
 		l2.draw(c2.getX(), c2.getY(), c3.getX(), c3.getY());
+		l3.draw(c1.getX(), c1.getY(), c3.getX(), c3.getY());
 		c1.draw(batch, Color.RED, "2");
 		c2.draw(batch, Color.GREEN, "6");
 		c3.draw(batch, Color.ORANGE, "9");

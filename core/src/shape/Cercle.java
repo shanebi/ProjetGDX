@@ -40,11 +40,11 @@ public class Cercle extends Actor {
 		this.x = x;
 		this.y = y;
 		this.radius = radius;
+		
 		sr = new ShapeRenderer();
-
 		bFont = new BitmapFont(Gdx.files.internal("default.fnt"));
 		lblStyle = new LabelStyle(bFont, Color.WHITE);
-		lbl = new Label("1", lblStyle);
+		lbl = new Label(null, lblStyle);
 		stage = new Stage();
 	}
 
@@ -69,7 +69,7 @@ public class Cercle extends Actor {
 		sr.end();
 
 		lbl.setText(txt);
-		lbl.setPosition(getX() - 10, getY() - 10);
+		lbl.setPosition(getX()-10, getY());
 
 		stage.addActor(lbl);
 		stage.draw();
