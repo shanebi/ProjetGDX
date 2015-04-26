@@ -8,13 +8,10 @@ import com.badlogic.gdx.Screen;
 import com.badlogic.gdx.graphics.Color;
 import com.badlogic.gdx.graphics.GL20;
 import com.badlogic.gdx.graphics.g2d.BitmapFont;
-import com.badlogic.gdx.graphics.g2d.SpriteBatch;
 import com.badlogic.gdx.graphics.glutils.ShapeRenderer;
 import com.badlogic.gdx.scenes.scene2d.Stage;
 import com.badlogic.gdx.scenes.scene2d.ui.Label;
 import com.badlogic.gdx.scenes.scene2d.ui.Label.LabelStyle;
-import com.badlogic.gdx.scenes.scene2d.ui.Skin;
-
 import fortunes_algo.FortunesAlgorithm;
 import fortunes_algo.Site;
 
@@ -59,7 +56,6 @@ public class GraphRandScreen implements Screen {
 		lbl = new Label("1", lblStyle);
 		sr = new ShapeRenderer();
 		fa = new FortunesAlgorithm(0, 0, 1000, 1000, 20);
-		new SpriteBatch();
 
 	}
 
