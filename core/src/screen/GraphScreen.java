@@ -35,6 +35,10 @@ public class GraphScreen implements Screen {
 	private Ligne l2;
 	private Ligne l3;
 	
+	private float x ;
+	private float y ;
+
+	
 
 	/**
 	 * Constructeur de la classe
@@ -71,11 +75,25 @@ public class GraphScreen implements Screen {
 		Gdx.gl.glClear(GL20.GL_COLOR_BUFFER_BIT);
 		
 		l1.draw(c1.getX(), c1.getY(), c2.getX(), c2.getY());
-		//l2.draw(c2.getX(), c2.getY(), c3.getX(), c3.getY());
-		//l3.draw(c1.getX(), c1.getY(), c3.getX(), c3.getY());
+		l2.draw(c2.getX(), c2.getY(), c3.getX(), c3.getY());
+		
+		if (Gdx.input.isTouched()) {
+			x = (Gdx.graphics.getWidth()-Gdx.input.getX());
+			y = (Gdx.graphics.getHeight()-Gdx.input.getY());
+		    
+			l3.draw(c3.getX(), c3.getY(), x, y);
+		    
+		    System.out.println("GDX X : "+ Gdx.input.getX()+" | "+ "GDX Y: "+ Gdx.input.getY());
+		    System.out.println("X : "+ x +" | "+ "Y: "+ y);
+		}
+		
+		
 		c1.draw(batch, Color.RED, "2");
 		c2.draw(batch, Color.GREEN, "6");
 		c3.draw(batch, Color.ORANGE, "9");
+		
+		
+		
 	}
 	
 
