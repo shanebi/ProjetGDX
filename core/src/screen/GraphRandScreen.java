@@ -1,4 +1,4 @@
-package com.mygdx.game;
+package screen;
 
 import java.util.Random;
 
@@ -12,6 +12,8 @@ import com.badlogic.gdx.graphics.glutils.ShapeRenderer;
 import com.badlogic.gdx.scenes.scene2d.Stage;
 import com.badlogic.gdx.scenes.scene2d.ui.Label;
 import com.badlogic.gdx.scenes.scene2d.ui.Label.LabelStyle;
+import com.mygdx.game.MyGdxGame;
+
 import fortunes_algo.FortunesAlgorithm;
 import fortunes_algo.Site;
 

@@ -1,5 +1,7 @@
 package com.mygdx.game;
 
+import screen.InterfaceScreen;
+
 import com.badlogic.gdx.Game;
 
 /**
