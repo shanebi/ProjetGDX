@@ -34,7 +34,7 @@ public class Ligne {
 	 */
 	public void draw(float x1, float y1, float x2, float y2) {
 		sr.begin(ShapeRenderer.ShapeType.Filled);
-		sr.setColor(Color.CYAN);
+		sr.setColor(Color.BLACK);
 		sr.rectLine(x1, y1, x2, y2, 25);
 		sr.end();
 	}
