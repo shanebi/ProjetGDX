@@ -11,18 +11,31 @@ import com.badlogic.gdx.graphics.glutils.ShapeRenderer;
  */
 public class Ligne {
 
-	
 	private ShapeRenderer sr;
 
+	/**
+	 * Constructeur de la classe
+	 */
 	public Ligne() {
 		sr = new ShapeRenderer();
 	}
 
-	public void draw(float x1, float y1, float x2, float y2, int width,
-			Color couleur) {
+	/**
+	 * Dessine une ligne entre deux points
+	 * 
+	 * @param x1
+	 *            Ordonné X du premier point (Depart)
+	 * @param y1
+	 *            Ordonné Y du premier point (Depart)
+	 * @param x2
+	 *            Ordonné X du deuxième point (Arrivée)
+	 * @param y2
+	 *            Ordonné Y du deuxième point (Arrivée)
+	 */
+	public void draw(float x1, float y1, float x2, float y2) {
 		sr.begin(ShapeRenderer.ShapeType.Filled);
-		sr.setColor(couleur);
-		sr.rectLine(x1, y1, x2, y2, width);
+		sr.setColor(Color.CYAN);
+		sr.rectLine(x1, y1, x2, y2, 25);
 		sr.end();
 	}
 

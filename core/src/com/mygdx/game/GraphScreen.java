@@ -18,10 +18,8 @@ import com.badlogic.gdx.graphics.glutils.ShapeRenderer;
 public class GraphScreen implements Screen, InputProcessor {
 
 	private MyGdxGame game;
-	private ShapeRenderer sr;
 	private boolean isTouching;
 	private SpriteBatch batch;
-	private Texture pixel;
 
 	private Cercle monCercle1;
 	private Cercle monCercle2;
@@ -39,9 +37,7 @@ public class GraphScreen implements Screen, InputProcessor {
 
 	@Override
 	public void show() {
-		sr = new ShapeRenderer();
 		batch = new SpriteBatch();
-		pixel = new Texture("pixel.png");
 		monCercle1 = new Cercle(100, 500, 50);
 		monCercle2 = new Cercle(500, 700, 50);
 		maLigne = new Ligne();
@@ -53,9 +49,11 @@ public class GraphScreen implements Screen, InputProcessor {
 		Gdx.gl.glClearColor(0, 0, 0, 1);
 		Gdx.gl.glClear(GL20.GL_COLOR_BUFFER_BIT);
 		batch.begin();
+		
+		maLigne.draw(monCercle1.getX(), monCercle1.getY(), monCercle2.getX(), monCercle2.getY());
+		
 		monCercle1.draw(batch, Color.GREEN);
 		monCercle2.draw(batch, Color.BLUE);
-		maLigne.draw(monCercle1.getX(), monCercle1.getY(), monCercle2.getX(), monCercle2.getY(), 50, Color.CYAN);
 		
 		batch.end();
 

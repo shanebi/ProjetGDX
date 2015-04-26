@@ -48,13 +48,18 @@ public class Cercle extends Actor {
 		sr.end();
 	}
 
+	/**
+	 * Retourne l'ordonné X du cercle
+	 */
 	public float getX() {
 		return x;
 	}
 
+	/**
+	 * Retourne l'ordonné Y du cercle
+	 */
 	public float getY() {
 		return y;
 	}
-	
 
 }
